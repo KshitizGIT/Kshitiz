@@ -92,6 +92,43 @@
       ]
     },
     {
+      "name": "media",
+      "Files": [
+        {
+          "SourcePath": "../wwwroot/images/about.jpg",
+          "TargetPath": "about.jpg"
+        },
+        {
+          "SourcePath": "../wwwroot/images/image_3.jpg",
+          "TargetPath": "image_3.jpg"
+        },
+        {
+          "SourcePath": "../wwwroot/images/work-1.jpg",
+          "TargetPath": "work-1.jpg"
+        },
+        {
+          "SourcePath": "../wwwroot/images/work-2.jpg",
+          "TargetPath": "work-2.jpg"
+        },
+        {
+          "SourcePath": "../wwwroot/images/work-3.jpg",
+          "TargetPath": "work-3.jpg"
+        },
+        {
+          "SourcePath": "../wwwroot/images/work-4.jpg",
+          "TargetPath": "work-4.jpg"
+        },
+        {
+          "SourcePath": "../wwwroot/images/work-5.jpg",
+          "TargetPath": "work-5.jpg"
+        },
+        {
+          "SourcePath": "../wwwroot/images/work-6.jpg",
+          "TargetPath": "work-6.jpg"
+        }
+      ]
+    },
+    {
       "name": "layers",
       "Layers": [
         {
