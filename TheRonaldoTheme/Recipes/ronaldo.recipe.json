@@ -702,6 +702,27 @@
               }
             }
           ]
+        },
+        {
+          "Name": "Portfolio",
+          "DisplayName": "Portfolio",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Stereotype": "CustomSettings"
+            },
+            "FullTextAspectSettings": {}
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Portfolio",
+              "Name": "Portfolio",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            }
+          ]
         }
       ],
       "ContentParts": [
@@ -962,11 +983,87 @@
           "ContentPartFieldDefinitionRecords": [
             {
               "FieldName": "TextField",
+              "Name": "ServiceDescription",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Service Description",
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "ProjectDescription",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Project Description",
+                  "Position": "1"
+                }
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "BlogDescription",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Blog Description",
+                  "Position": "2"
+                }
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "ContactDescription",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Contact Description",
+                  "Position": "3"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Portfolio",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "TextField",
               "Name": "Owner",
               "Settings": {
                 "ContentPartFieldSettings": {
                   "DisplayName": "Owner",
                   "Position": "0"
+                }
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "Titles",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Titles",
+                  "Position": "1"
+                }
+              }
+            },
+            {
+              "FieldName": "BooleanField",
+              "Name": "Available",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Available",
+                  "Position": "2"
+                }
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "AvailableDescription",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Available Description",
+                  "Position": "3"
                 }
               }
             }
@@ -1055,6 +1152,28 @@
           ]
         }
       ]
+    },
+    {
+      "name": "custom-settings",
+      "Portfolio": {
+        "ContentItemId": "[js:uuid()]",
+        "ContentType": "Portfolio",
+        "DisplayText": null,
+        "Latest": false,
+        "Published": false,
+        "Author": "[js: parameters('AdminUsername')]",
+        "Portfolio": {
+          "Owner": {
+            "Text": "Ronaldo Fredrickson"
+          },
+          "Titles": {
+            "Text": "\"Web Designer.\",\"Developer.\", \"Photographer.\", \"Marketer.\", \"Blooger\""
+          },
+          "Available": {
+            "Value": true
+          }
+        }
+      }
     },
     {
       "name": "content",
@@ -1247,8 +1366,17 @@
           "Owner": "[js: parameters('AdminUsername')]",
           "Author": "[js: parameters('AdminUsername')]",
           "LandingPage": {
-            "Owner": {
-              "Text": "Ronaldo Fredrickson"
+            "ServiceDescription": {
+              "Text": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia"
+            },
+            "BlogDescription": {
+              "Text": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia"
+            },
+            "ContactDescription": {
+              "Text": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia"
+            },
+            "ProjectDescription": {
+              "Text": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia"
             }
           },
           "AutoroutePart": {

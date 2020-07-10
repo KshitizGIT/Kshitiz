@@ -5,13 +5,13 @@
       <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-center">
         <div class="text text-center">
           <span class="subheading">Hey! I am</span>
-          <h1>{{ Model.ContentItem.Content.LandingPage.Owner.Text}}</h1>
+          <h1>{{ Site.Properties.Portfolio.Portfolio.Owner.Text}}</h1>
           <h2>
             I'm a
             <span
                   class="txt-rotate"
                   data-period="2000"
-                  data-rotate='[ "Software Engineer", "Freelancer", "Blogger" ]'></span>
+                  data-rotate='{{"[ " +  Site.Properties.Portfolio.Portfolio.Titles.Text + " ]"}}'></span>
           </h2>
         </div>
       </div>
@@ -47,7 +47,7 @@
             <ul class="about-info mt-4 px-md-0 px-2">
               <li class="d-flex">
                 <span>Name:</span>
-                <span>{{ Model.ContentItem.Content.LandingPage.Owner.Text }} </span>
+                <span>{{ Site.Properties.Portfolio.Portfolio.Owner.Text}}</span>
               </li>
               <li class="d-flex">
                 <span>Date of birth:</span>
@@ -396,7 +396,7 @@
       <div class="col-md-12 heading-section text-center ftco-animate">
         <h1 class="big big-2">Services</h1>
         <h2 class="mb-4">Services</h2>
-        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+        <p> {{Model.ContentItem.Content.LandingPage.ServiceDescription.Text }}</p>
       </div>
     </div>
     <div class="row">
@@ -426,7 +426,7 @@
       <div class="col-md-12 heading-section text-center ftco-animate">
         <h1 class="big big-2">Projects</h1>
         <h2 class="mb-4">Our Projects</h2>
-        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+        <p>  {{Model.ContentItem.Content.LandingPage.ProjectDescription.Text }}</p>
       </div>
     </div>
     <div class="row no-gutters">
@@ -501,7 +501,7 @@
       <div class="col-md-7 heading-section text-center ftco-animate">
         <h1 class="big big-2">Blog</h1>
         <h2 class="mb-4">Our Blog</h2>
-        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+        <p> {{Model.ContentItem.Content.LandingPage.BlogDescription.Text }}</p>
       </div>
     </div>
     {% for blog in blogs %}
@@ -534,6 +534,7 @@
    {% endif %}
 </section>
 
+{% if Site.Properties.Portfolio.Portfolio.Available.Value %}
 <section class="ftco-section ftco-hireme img" style="background-image: url(/TheRonaldoTheme/images/bg_1.jpg)">
   <div class="overlay"></div>
   <div class="container">
@@ -542,7 +543,7 @@
         <h2>
           I'm <span>Available</span> for freelancing
         </h2>
-        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+        <p>{{Site.Properties.Portfolio.Portfolio.AvailableDescription.Text }}</p>
         <p class="mb-0">
           <a href="#" class="btn btn-primary py-3 px-5">Hire me</a>
         </p>
@@ -550,14 +551,14 @@
     </div>
   </div>
 </section>
-
+{%endif %}
 <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
   <div class="container">
     <div class="row justify-content-center mb-5 pb-3">
       <div class="col-md-7 heading-section text-center ftco-animate">
         <h1 class="big big-2">Contact</h1>
         <h2 class="mb-4">Contact Me</h2>
-        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+        <p>{{Model.ContentItem.Content.LandingPage.ContactDescription.Text }}</p>
       </div>
     </div>
 
