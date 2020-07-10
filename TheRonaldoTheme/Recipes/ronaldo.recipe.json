@@ -1239,7 +1239,7 @@
           }
         },
         {
-          "ContentItemId": "[js: variables('landingContentItemId')",
+          "ContentItemId": "[js: variables('landingContentItemId')]",
           "ContentType": "LandingPage",
           "DisplayText": "Landing Page",
           "Latest": true,
