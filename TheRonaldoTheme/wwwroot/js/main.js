@@ -66,13 +66,13 @@
 	var onePageClick = function() {
 
 
-		$(document).on('click', '#ftco-nav a[href^="#"]', function (event) {
+		$(document).on('click', '#ftco-nav a[href^="/#"]', function (event) {
 	    event.preventDefault();
 
 	    var href = $.attr(this, 'href');
 
 	    $('html, body').animate({
-	        scrollTop: $($.attr(this, 'href')).offset().top - 70
+	        scrollTop: $($.attr(this, 'href').replace('/','')).offset().top - 70
 	    }, 500, function() {
 	    	// window.location.hash = href;
 	    });

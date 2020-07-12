@@ -74,12 +74,12 @@
         </div>
         <div class="counter-wrap ftco-animate d-flex mt-md-3">
           <div class="text">
-            <p class="mb-4">
+            <!--<p class="mb-4">
               <span class="number" data-number="120">0</span>
               <span>Project complete</span>
-            </p>
+            </p>-->
             <p>
-              <a href="#" class="btn btn-primary py-3 px-3">Download CV</a>
+              <a href="#" target="_blank" class="btn btn-primary py-3 px-3">Download CV</a>
             </p>
           </div>
         </div>
@@ -263,9 +263,9 @@
   {% endif %}
 </section>
 
-
+{% if Model.ContentItem.Projects.ContentItems | size > 0 %}
 <section class="ftco-section ftco-project" id="projects-section">
-  {% if Model.ContentItem.Projects.ContentItems | size > 0 %}
+  
   <div class="container-fluid px-md-0">
     <div class="row no-gutters justify-content-center pb-5">
       <div class="col-md-12 heading-section text-center ftco-animate">
@@ -295,7 +295,7 @@
 
     </div>
   </div>
-  {% endif %}
+  
 </section>
 
 <section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
@@ -336,7 +336,7 @@
     </div>
   </div>
 </section>
-
+{% endif %}
 <section class="ftco-section" id="blog-section">
    {% assign blogs = Queries.RecentBlogPosts | query %}
    {% assign count = blogs | size %}
@@ -390,7 +390,7 @@
         </h2>
         <p>{{Site.Properties.Portfolio.Portfolio.AvailableDescription.Text }}</p>
         <p class="mb-0">
-          <a href="#" class="btn btn-primary py-3 px-5">Hire me</a>
+          <a href="#contactme-section" class="btn btn-primary py-3 px-5">Hire me</a>
         </p>
       </div>
     </div>
@@ -460,9 +460,9 @@
       </div>
     </div>
 
-    <div class="row no-gutters block-9">
+    <div class="row no-gutters block-9" id="contactme-section">
       <div class="col-md-6 order-md-last d-flex">
-        <form action="#" class="bg-light p-4 p-md-5 contact-form">
+        <form action="#" class="bg-light p-4 p-md-5">
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Your Name">
           </div>
