@@ -67,15 +67,20 @@
 
 
 		$(document).on('click', '#ftco-nav a[href^="/#"]', function (event) {
-	    event.preventDefault();
+			let isHomePage = false
+			if (location.origin + '/' == location.href)
+				isHomePage = true;
+			if (isHomePage) {
+				event.preventDefault();
 
-	    var href = $.attr(this, 'href');
+				var href = $.attr(this, 'href');
 
-	    $('html, body').animate({
-	        scrollTop: $($.attr(this, 'href').replace('/','')).offset().top - 70
-	    }, 500, function() {
-	    	// window.location.hash = href;
-	    });
+				$('html, body').animate({
+					scrollTop: $($.attr(this, 'href').replace('/', '')).offset().top - 70
+				}, 500, function () {
+					// window.location.hash = href;
+				});
+			}
 		});
 
 	};

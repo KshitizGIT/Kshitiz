@@ -92,6 +92,22 @@
       ]
     },
     {
+      "name": "lucene-index",
+      "Indices": [
+        {
+          "Search": {
+            "AnalyzerName": "standardanalyzer",
+            "IndexLatest": false,
+            "IndexedContentTypes": [
+              "BlogPost"
+            ],
+            "Culture": "any"
+          }
+        }
+      ]
+    },
+    {
+
       "name": "media",
       "Files": [
         {
@@ -154,15 +170,6 @@
       }
     },
     {
-      "name": "Templates",
-      "Templates": {
-        "Content__LandingPage": {
-          "Description": "A template for the Landing Page content type",
-          "Content": "[file:text('Snippets/landingpage.liquid')]"
-        }
-      }
-    },
-    {
       "name": "ContentDefinition",
       "ContentTypes": [
         {
@@ -190,8 +197,8 @@
           ]
         },
         {
-          "Name": "LandingPage",
-          "DisplayName": "Landing Page",
+          "Name": "PortfolioPage",
+          "DisplayName": "Portfolio Page",
           "Settings": {
             "ContentTypeSettings": {
               "Creatable": true,
@@ -204,11 +211,11 @@
           },
           "ContentTypePartDefinitionRecords": [
             {
-              "PartName": "LandingPage",
-              "Name": "LandingPage",
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
               "Settings": {
                 "ContentTypePartSettings": {
-                  "Position": "3"
+                  "Position": "0"
                 }
               }
             },
@@ -226,12 +233,41 @@
               }
             },
             {
-              "PartName": "TitlePart",
-              "Name": "TitlePart",
+              "PartName": "AliasPart",
+              "Name": "AliasPart",
               "Settings": {
                 "ContentTypePartSettings": {
-                  "Position": "0"
+                  "Position": "2"
                 }
+              }
+            },
+            {
+              "PartName": "About",
+              "Name": "About",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "3"
+                }
+              }
+            },
+            {
+              "PartName": "BagPart",
+              "Name": "Resume",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "DisplayName": "Resume",
+                  "Description": "Resume of the owner",
+                  "Position": "4"
+                },
+                "BagPartSettings": {
+                  "ContainedContentTypes": [
+                    "Awards",
+                    "Education",
+                    "Experience",
+                    "Skills"
+                  ]
+                },
+                "ContentIndexSettings": {}
               }
             },
             {
@@ -252,41 +288,13 @@
               }
             },
             {
-              "PartName": "About",
-              "Name": "About",
-              "Settings": {
-                "ContentTypePartSettings": {
-                  "Position": "4"
-                }
-              }
-            },
-            {
-              "PartName": "BagPart",
-              "Name": "Resume",
-              "Settings": {
-                "ContentTypePartSettings": {
-                  "DisplayName": "Resume",
-                  "Description": "Resume of the owner",
-                  "Position": "6"
-                },
-                "BagPartSettings": {
-                  "ContainedContentTypes": [
-                    "Awards",
-                    "Education",
-                    "Experience"
-                  ]
-                },
-                "ContentIndexSettings": {}
-              }
-            },
-            {
               "PartName": "BagPart",
               "Name": "Projects",
               "Settings": {
                 "ContentTypePartSettings": {
                   "DisplayName": "Projects",
                   "Description": "List of projects",
-                  "Position": "7"
+                  "Position": "6"
                 },
                 "BagPartSettings": {
                   "ContainedContentTypes": [
@@ -296,12 +304,13 @@
                 "ContentIndexSettings": {}
               }
             },
+
             {
-              "PartName": "AliasPart",
-              "Name": "AliasPart",
+              "PartName": "PortfolioPage",
+              "Name": "PortfolioPage",
               "Settings": {
                 "ContentTypePartSettings": {
-                  "Position": "2"
+                  "Position": "7"
                 }
               }
             }
@@ -723,6 +732,70 @@
               }
             }
           ]
+        },
+        {
+          "Name": "Skill",
+          "DisplayName": "Skill",
+          "Settings": {
+            "ContentTypeSettings": {},
+            "FullTextAspectSettings": {}
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Skill",
+              "Name": "Skill",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                }
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Skills",
+          "DisplayName": "Skills",
+          "Settings": {
+            "ContentTypeSettings": {},
+            "FullTextAspectSettings": {}
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Skills",
+              "Name": "Skills",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                }
+              }
+            },
+            {
+              "PartName": "BagPart",
+              "Name": "BagPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "DisplayName": "Skills List",
+                  "Description": "Provides a collection behavior for your content item.",
+                  "Position": "0"
+                },
+                "BagPartSettings": {
+                  "ContainedContentTypes": [
+                    "Skill"
+                  ]
+                },
+                "ContentIndexSettings": {}
+              }
+            }
+          ]
         }
       ],
       "ContentParts": [
@@ -828,7 +901,8 @@
                 },
                 "ContentIndexSettings": {},
                 "TaxonomyFieldSettings": {
-                  "TaxonomyContentItemId": "4r1be11thskyj4j9yjzcvxz35q",
+                  "TaxonomyContentItemId": "[js: variables('categoriesContentItemId')]",
+                  "Required": true,
                   "Unique": true,
                   "LeavesOnly": true
                 }
@@ -978,49 +1052,9 @@
           ]
         },
         {
-          "Name": "LandingPage",
+          "Name": "PortfolioPage",
           "Settings": {},
           "ContentPartFieldDefinitionRecords": [
-            {
-              "FieldName": "TextField",
-              "Name": "ServiceDescription",
-              "Settings": {
-                "ContentPartFieldSettings": {
-                  "DisplayName": "Service Description",
-                  "Position": "0"
-                }
-              }
-            },
-            {
-              "FieldName": "TextField",
-              "Name": "ProjectDescription",
-              "Settings": {
-                "ContentPartFieldSettings": {
-                  "DisplayName": "Project Description",
-                  "Position": "1"
-                }
-              }
-            },
-            {
-              "FieldName": "TextField",
-              "Name": "BlogDescription",
-              "Settings": {
-                "ContentPartFieldSettings": {
-                  "DisplayName": "Blog Description",
-                  "Position": "2"
-                }
-              }
-            },
-            {
-              "FieldName": "TextField",
-              "Name": "ContactDescription",
-              "Settings": {
-                "ContentPartFieldSettings": {
-                  "DisplayName": "Contact Description",
-                  "Position": "3"
-                }
-              }
-            }
           ]
         },
         {
@@ -1171,6 +1205,21 @@
           },
           "Available": {
             "Value": true
+          },
+          "AvailableDescription": {
+            "Text": null
+          },
+          "ServiceDescription": {
+            "Text": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia"
+          },
+          "ProjectDescription": {
+            "Text": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia"
+          },
+          "BlogDescription": {
+            "Text": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia"
+          },
+          "ContactDescription": {
+            "Text": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia"
           }
         }
       }
@@ -1239,13 +1288,8 @@
                 "ContentItemId": "[js: variables('categoryTravelContentItemId')]",
                 "ContentType": "Category",
                 "DisplayText": "Travel",
-                "Latest": false,
-                "Published": false,
-                "ModifiedUtc": "2020-07-08T12:46:22.0308062Z",
-                "PublishedUtc": null,
-                "CreatedUtc": null,
                 "Owner": null,
-                "Author": "admin",
+                "Author": "[js: parameters('AdminUsername')]",
                 "Category": {
                   "Icon": {
                     "Text": "fas fa-globe-americas"
@@ -1359,26 +1403,12 @@
         },
         {
           "ContentItemId": "[js: variables('landingContentItemId')]",
-          "ContentType": "LandingPage",
-          "DisplayText": "Landing Page",
+          "ContentType": "PortfolioPage",
+          "DisplayText": "Portfolio",
           "Latest": true,
           "Published": true,
           "Owner": "[js: parameters('AdminUsername')]",
           "Author": "[js: parameters('AdminUsername')]",
-          "LandingPage": {
-            "ServiceDescription": {
-              "Text": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia"
-            },
-            "BlogDescription": {
-              "Text": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia"
-            },
-            "ContactDescription": {
-              "Text": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia"
-            },
-            "ProjectDescription": {
-              "Text": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia"
-            }
-          },
           "AutoroutePart": {
             "Path": "home",
             "SetHomepage": true,
@@ -1387,7 +1417,7 @@
             "Absolute": false
           },
           "TitlePart": {
-            "Title": "Landing Page"
+            "Title": "Portfolio"
           },
           "Services": {
             "ContentItems": [
@@ -1839,6 +1869,153 @@
                     }
                   ]
                 }
+              },
+              {
+                "ContentItemId": "[js:uuid()]",
+                "ContentItemVersionId": null,
+                "ContentType": "Skills",
+                "DisplayText": null,
+                "Author": "[js: parameters('AdminUsername')]",
+                "Skills": {},
+                "BagPart": {
+                  "ContentItems": [
+                    {
+                      "ContentItemId": "[js:uuid()]",
+                      "ContentItemVersionId": null,
+                      "ContentType": "Skill",
+                      "DisplayText": "CSS",
+                      "Author": "[js: parameters('AdminUsername')]",
+                      "Skill": {
+                        "Percentage": {
+                          "Value": 90.0
+                        }
+                      },
+                      "TitlePart": {
+                        "Title": "CSS"
+                      }
+                    },
+                    {
+                      "ContentItemId": "[js:uuid()]",
+                      "ContentItemVersionId": null,
+                      "ContentType": "Skill",
+                      "DisplayText": "HTML",
+                      "Author": "[js: parameters('AdminUsername')]",
+                      "Skill": {
+                        "Percentage": {
+                          "Value": 80.0
+                        }
+                      },
+                      "TitlePart": {
+                        "Title": "HTML"
+                      }
+                    },
+                    {
+                      "ContentItemId": "[js:uuid()]",
+                      "ContentItemVersionId": null,
+                      "ContentType": "Skill",
+                      "DisplayText": "jQuery",
+                      "Author": "[js: parameters('AdminUsername')]",
+                      "Skill": {
+                        "Percentage": {
+                          "Value": 75.0
+                        }
+                      },
+                      "TitlePart": {
+                        "Title": "jQuery"
+                      }
+                    },
+                    {
+                      "ContentItemId": "[js:uuid()]",
+                      "ContentItemVersionId": null,
+                      "ContentType": "Skill",
+                      "DisplayText": "Photoshop",
+                      "Author": "[js: parameters('AdminUsername')]",
+                      "Skill": {
+                        "Percentage": {
+                          "Value": 90.0
+                        }
+                      },
+                      "TitlePart": {
+                        "Title": "Photoshop"
+                      }
+                    },
+                    {
+                      "ContentItemId": "[js:uuid()]",
+                      "ContentItemVersionId": null,
+                      "ContentType": "Skill",
+                      "DisplayText": "jQuery",
+                      "Author": "[js: parameters('AdminUsername')]",
+                      "Skill": {
+                        "Percentage": {
+                          "Value": 85.0
+                        }
+                      },
+                      "TitlePart": {
+                        "Title": "jQuery"
+                      }
+                    },
+                    {
+                      "ContentItemId": "[js:uuid()]",
+                      "ContentItemVersionId": null,
+                      "ContentType": "Skill",
+                      "DisplayText": "HTML5",
+                      "Author": "[js: parameters('AdminUsername')]",
+                      "Skill": {
+                        "Percentage": {
+                          "Value": 95.0
+                        }
+                      },
+                      "TitlePart": {
+                        "Title": "HTML5"
+                      }
+                    },
+                    {
+                      "ContentItemId": "[js:uuid()]",
+                      "ContentItemVersionId": null,
+                      "ContentType": "Skill",
+                      "DisplayText": "CSS3",
+                      "Author": "[js: parameters('AdminUsername')]",
+                      "Skill": {
+                        "Percentage": {
+                          "Value": 90.0
+                        }
+                      },
+                      "TitlePart": {
+                        "Title": "CSS3"
+                      }
+                    },
+                    {
+                      "ContentItemId": "[js:uuid()]",
+                      "ContentItemVersionId": null,
+                      "ContentType": "Skill",
+                      "DisplayText": "WordPress",
+                      "Author": "[js: parameters('AdminUsername')]",
+                      "Skill": {
+                        "Percentage": {
+                          "Value": 70.0
+                        }
+                      },
+                      "TitlePart": {
+                        "Title": "WordPress"
+                      }
+                    },
+                    {
+                      "ContentItemId": "[js:uuid()]",
+                      "ContentItemVersionId": null,
+                      "ContentType": "Skill",
+                      "DisplayText": "SEO",
+                      "Author": "[js: parameters('AdminUsername')]",
+                      "Skill": {
+                        "Percentage": {
+                          "Value": 80.0
+                        }
+                      },
+                      "TitlePart": {
+                        "Title": "SEO"
+                      }
+                    }
+                  ]
+                }
               }
             ]
           },
@@ -1957,37 +2134,6 @@
           "ListPart": {
             "FeedProxyUrl": null,
             "FeedItemsCount": 5
-          },
-          "Blogs": {
-            "ContentItems": [
-              {
-                "ContentItemId": "[js:uuid()]",
-                "ContentType": "Blog",
-                "DisplayText": "Blogging",
-                "TitlePart": {
-                  "Title": "Blogging"
-                },
-                "AutoroutePart": {
-                  "Path": "blogging",
-                  "SetHomepage": false,
-                  "Disabled": false,
-                  "RouteContainedItems": false,
-                  "Absolute": false
-                },
-                "Blog": {
-                  "Image": {
-                    "Paths": []
-                  }
-                },
-                "HtmlBodyPart": {
-                  "Html": ""
-                },
-                "ListPart": {
-                  "FeedProxyUrl": null,
-                  "FeedItemsCount": 6
-                }
-              }
-            ]
           },
           "AliasPart": {
             "Alias": "default"
