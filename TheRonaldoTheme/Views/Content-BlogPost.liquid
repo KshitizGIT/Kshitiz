@@ -3,10 +3,11 @@
         <div class="row">
           <div class="col-lg-8 ftco-animate">
             <h2 class="mb-3">{{Model.ContentItem.Content.TitlePart.Title }}</h2>
-
             {{ Model.Content.MarkdownBodyPart | shape_render }}
 
             {{ Model.Content.BlogPost-Category | shape_render}}
+            {{ Model.Content.BlogPost-Tags-TaxonomyField_Display__Tags | shape_render }}
+
                 <div class="tag-widget post-tag-container mb-5 mt-5">
               <div class="tagcloud">
                 <a href="#" class="tag-cloud-link">Life</a>

@@ -1,4 +1,5 @@
-﻿<section class="hero-wrap js-fullheight">
+﻿{% zone "Header" %}
+<section class="hero-wrap js-fullheight">
   <div class="overlay"></div>
   <div class="container">
     <div class="row no-gutters slider-text js-fullheight justify-content-center align-items-center">
@@ -26,6 +27,7 @@
     </a>
   </div>
 </section>
+{% endzone %}
 
 {{Model.Content | shape_render }}
 <section class="ftco-section" id="blog-section">
