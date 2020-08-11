@@ -1,4 +1,20 @@
-﻿{% for item in Model.ContentItems %}
+﻿{% zone "Header" %}
+<section class="hero-wrap js-fullheight">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text js-fullheight justify-content-center align-items-center">
+      <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-center">
+        <div class="text text-center">
+          <h1>{{ Site.Properties.Portfolio.Portfolio.Owner.Text}}</h1>
+          <span class="subheading">{{Model.ContentItem |display_text}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+{% endzone %}
+{% for item in Model.ContentItems %}
     {{ item | shape_build_display: "Summary" | shape_render }}
 {% endfor %}
 

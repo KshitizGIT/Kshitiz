@@ -1,8 +1,25 @@
-﻿		<section class="ftco-section">
+﻿{% zone "Header" %}
+<section class="hero-wrap js-fullheight">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text js-fullheight justify-content-center align-items-center">
+      <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-center">
+        <div class="text text-center">
+          <h2>
+          {{Model.ContentItem |display_text}}
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+{% endzone %}
+<section class="ftco-section">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 ftco-animate">
-            <h2 class="mb-3">{{Model.ContentItem.Content.TitlePart.Title }}</h2>
+            {{Model.Content.ContentsMetadata | shape_render }}
             {{ Model.Content.MarkdownBodyPart | shape_render }}
 
             {{ Model.Content.BlogPost-Category | shape_render}}

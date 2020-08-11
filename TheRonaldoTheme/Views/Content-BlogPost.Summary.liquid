@@ -1,15 +1,15 @@
-﻿<div class="post-preview">
+﻿<div>
     {% a display_for:Model.ContentItem %}
-        <h2 class="post-title">
+        <h2>
             {{ Model.ContentItem.DisplayText }}
         </h2>
-        <h3 class="post-subtitle">
+        <h5>
             {{ Model.ContentItem.Content.BlogPost.Subtitle.Text }}
-        </h3>
+        </h5>
     {% enda %}
-    <p class="post-meta">
+    <p>
         {% assign format = "MMMM dd, yyyy" | t %}
-        {% assign dateTime = "DateTime" | shape_new: utc: Model.ContentItem.CreatedUtc, format: format | shape_stringify %}
+        {% assign dateTime = "DateTime" | shape_new: utc: Model.ContentItem.PublishedUtc, format: format | shape_stringify %}
         {{ "Posted by" | t }} <a href="#">{{ Model.ContentItem.Owner }}</a> {{ "on {0}" | t: dateTime | raw }}
   
         <span class="term-badge">
