@@ -17,6 +17,8 @@
     {% style src:"~/TheRonaldoTheme/css/style.css", at: "Head"  %}
 
     {% resources type: "Meta" %}
+
+	{% render_section "BlogMeta", required: false %}
     {% resources type: "HeadLink" %}
     {% resources type: "HeadScript" %}
     {% resources type: "Stylesheet" %}

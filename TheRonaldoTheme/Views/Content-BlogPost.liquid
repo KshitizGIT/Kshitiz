@@ -15,6 +15,21 @@
   </div>
 </section>
 {% endzone %}
+
+{%zone "BlogMeta" %}
+<meta content="{{Model.ContentItem.DisplayText}}" name="title" />
+<meta content="{{Model.ContentItem.Content.BlogPost.Subtitle.Text}}" name="description" />
+<meta content="website" property="og:type" />
+<meta content="{{Site.BaseUrl}}{{Model.ContentItem | display_url}}" property="og:url" />
+<meta content="{{Model.ContentItem.DisplayText}}" property="og:title" />
+<meta content="{{Model.ContentItem.Content.BlogPost.Subtitle.Text}}" property="og:description" />
+<meta content="{{Site.BaseUrl}}{{Model.ContentItem.Content.BlogPost.Image.Paths.first | asset_url }}" property="og:image" />
+<meta content="summary_large_image" property="twitter:card" />
+<meta content="{{Site.BaseUrl}}{{Model.ContentItem | display_url}}" property="twitter:url" />
+<meta content="{{Model.ContentItem.DisplayText}}" property="twitter:title" />
+<meta content="{{Model.ContentItem.Content.BlogPost.Subtitle.Text}}" property="twitter:description" />
+<meta content="{{Site.BaseUrl}}{{Model.ContentItem.Content.BlogPost.Image.Paths.first | asset_url }}" property="twitter:image" />
+{% endzone %}
 <section class="ftco-section">
       <div class="container">
         <div class="row">
