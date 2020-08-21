@@ -6,7 +6,6 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /Kshitiz
 COPY ["PersonalWebsite/PersonalWebsite.csproj", "PersonalWebsite/"]
-COPY ["TheRonaldoTheme/TheRonaldoTheme.csproj", "TheRonaldoTheme/"]
 RUN dotnet restore "PersonalWebsite/PersonalWebsite.csproj"
 COPY . .
 WORKDIR "/Kshitiz/PersonalWebsite"
